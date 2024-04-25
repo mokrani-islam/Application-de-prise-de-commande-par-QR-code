@@ -1,0 +1,18 @@
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 2px solid black; 
+  }
+  
+  .logo {
+    margin-right: 10px; /* Espace entre le logo et le texte */
+  }
+  
+  .texte h1 {
+    margin: 0; /* Pour enlever les marges par défaut du titre */
+    padding-right: 10px;
+    padding-bottom: 10px;
+    font-family: sans-serif;
+  }
