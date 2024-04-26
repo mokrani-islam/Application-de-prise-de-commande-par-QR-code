@@ -1,6 +1,5 @@
 import  "../Styles/Menu.css"
 import Logo from "../assets/Logo.jpg"
-
 function Menu() {
     return (
       <div className="menu">
@@ -9,6 +8,7 @@ function Menu() {
         </div>
         <div className="texte">
           <h1 >Menu du Restaurant</h1>
+          
         </div>
       </div>
     );

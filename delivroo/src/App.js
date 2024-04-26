@@ -1,6 +1,7 @@
 import Menu from './Composent/Menu'
 import Dishes from './Composent/Dishes'
 import Cards from  './Composent/Cards.js'
+
 function App() {
 
   return (
@@ -10,7 +11,7 @@ function App() {
     <Menu key={"1"}/>
     <Dishes key={"2"}/>
     <Cards key={"3"}/>
-
+     
     
     </>
   

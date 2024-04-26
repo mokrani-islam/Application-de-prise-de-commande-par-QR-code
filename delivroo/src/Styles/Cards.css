@@ -1,20 +1,20 @@
 .custom-container {
-  display: flex; /* Utilisation de flexbox */
-  flex-direction: column;
-    padding: 10px;
+
   width:100%; /* 3/4 de la largeur du conteneur parent */
   margin-left: auto; /* Marge automatique à gauche */
   margin-right: auto; /* Marge automatique à droite */
 }
 .custom-margin-top {
-display: flex;
-    justify-content: space-between;
-  margin-top: 20px; /* Ajoute une marge de 20 pixels en haut */
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  
+  justify-content: center;
+  margin: 40px 10px 0 10%; /* Ajoute une marge de 20 pixels en haut */
 }
 .custom-card {
     background-color: #fff;
     height: 280px;
-    
+    margin-right: 10px;
     color: #000;
     border-radius: 1rem;
   }
@@ -65,4 +65,10 @@ display: flex;
 
     margin : 0  10px;
 
+}
+
+
+ul.slick-dots {
+  /* Ajoutez vos styles personnalisés ici */
+  margin-top: 10px; /* Aligne les points indicateurs au centre */
 }
