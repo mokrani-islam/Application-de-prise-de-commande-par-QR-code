@@ -26,18 +26,18 @@ function Cards({ updateNumberOfProducts }) {
     }
   };
 
-  var settings = {
+  /*var settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
-  };
+    slidesToScroll: 2,
+  };*/
 
   return (
     <div className="custom-container">
       <div className="custom-margin-top">
-        <Slider {...settings}>
+        {/* <Slider {...settings}> */}
           {data.map((d) => (
             <div key={d.name} className="custom-card">
               <div className="header">
@@ -50,7 +50,7 @@ function Cards({ updateNumberOfProducts }) {
               </div> 
             </div>
           ))}
-        </Slider>
+        {/* </Slider> */}
       </div>
       {/* Affichage des éléments ajoutés au panier */}
       <div className="panier">
