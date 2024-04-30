@@ -3,4 +3,36 @@
     font-family: sans-serif;
     font-size: 20px;
     font-weight: bold;
+    margin: 25px 0 25px 0;
 }
+.Panier{
+   
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+}
+.customPanier{
+
+    display: flex;
+   
+    justify-content: space-between;
+    margin-bottom: 15px;
+    
+
+
+}
+
+
+.pizzaPanier{
+    height: 60px;
+    width: 60px;
+   
+  }
+
+  .contentPanier{
+ 
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+
+  }

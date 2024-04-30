@@ -7,7 +7,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/panier" element={<Panier />} />
+      <Route path="/panier" element={<Panier />}   />
     </Routes>
   );
 }

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Menu from  './Menu.js';
 import  '../Styles/Panier.css';
 import data from "../Data/data.js"
@@ -13,13 +12,16 @@ function Panier() {
     <div className='Panier'>
      
     {data.map((d) => (
-            <div key={d.name} className="custom-card">
-              <div className="header">
-                <img src={Pizza} alt="" className="pizza-image" />
+            <div key={d.name} className="customPanier">
+              
+              <div className="headerPanier">
+              <p className="titlePanier">{d.name}</p>
+                <img src={Pizza} alt="" className="pizzaPanier" />
               </div>
-              <div className="content">
-                <p className="title">{d.name}</p>
-                <p>{d.review}</p>
+              <div className="contentPanier">
+                
+                <p>quantite</p>
+                <p>table</p>
                 <button className="custom-button" >Ajouter</button>
                 <button className="custom-button" >Supprimer</button>
               </div> 
