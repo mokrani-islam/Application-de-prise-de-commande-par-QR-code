@@ -4,6 +4,7 @@ import "../Styles/Menu.css"
 import Logo from "../assets/Logo.jpg";
 
 function Menu({ nombreProduits }) {
+    const panierData = { momo:'1'};
     return (
         <div className="menu">
             <div className="logo">
@@ -13,7 +14,7 @@ function Menu({ nombreProduits }) {
             </div>
             <div className="texte">
                 {/*<h1 >Menu du Restaurant</h1>*/}
-                <Link to="/panier"> {/* Redirige vers le composant associé à l'URL /panier */}
+                <Link to={{ pathname: "/panier", state: { panierData } }}> {/* Redirige vers le composant associé à l'URL /panier */}
                     <i className="fa-solid fa-cart-plus" style={{ color: "red", paddingRight: "10px", fontSize: "25px" }}>{nombreProduits}</i>
                 </Link>
             </div>

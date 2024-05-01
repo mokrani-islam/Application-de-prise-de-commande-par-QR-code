@@ -5,10 +5,12 @@ import MainPage from '../Composent/MainPage.js';
 
 function AppRoutes() {
   return (
+    
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/panier" element={<Panier />}   />
     </Routes>
+    
   );
 }
 

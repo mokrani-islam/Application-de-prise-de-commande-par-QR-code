@@ -6,7 +6,6 @@ import AppRoutes from  './Route/AppRoutes.js'
 import { Routes, Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-
 function App() {
   const [nombreProduits, setNombreProduits] = useState(0); // État pour le nombre de produits
 
@@ -17,6 +16,7 @@ function App() {
 
   
       return (
+      
         <BrowserRouter>
           <AppRoutes />
         </BrowserRouter>

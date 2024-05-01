@@ -6,20 +6,22 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import data from "../Data/data.js"
+import { useContext } from 'react'
+import { PanierContext  } from './PanierContext.js'
 
 function Cards({ updateNumberOfProducts }) {
-  const [panier, setPanier] = useState([]);
+  const { panier,setPanier} = useContext(PanierContext);
   const [nombreProduits, setNombreProduits] = useState(0);
 
   const ajouterAuPanier = (nom, photo) => {
-    const produitExistant = panier.find((item) => item.nom === nom);
+  const produitExistant = panier.find((item) => item.nom === nom);
 
-    if (produitExistant) {
+  if (produitExistant) {
       const nouveauPanier = panier.map((item) =>
         item.nom === nom ? { ...item, nombreAjouts: item.nombreAjouts + 1 } : item
       );
       setPanier(nouveauPanier);
-    } else {
+  } else {
       setPanier([...panier, { nom, photo, nombreAjouts: 1 }]);
       setNombreProduits(nombreProduits + 1);
       updateNumberOfProducts(nombreProduits + 1); // Mettre à jour le nombre de produits dans le Menu
@@ -38,7 +40,7 @@ function Cards({ updateNumberOfProducts }) {
     <div className="custom-container">
       <div className="custom-margin-top">
         {/* <Slider {...settings}> */}
-          {data.map((d) => (
+          {data.slice(0, -1).map((d) => (
             <div key={d.name} className="custom-card">
               <div className="header">
                 <img src={Pizza} alt="" className="pizza-image" />
