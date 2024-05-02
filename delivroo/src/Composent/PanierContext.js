@@ -12,13 +12,15 @@ export const PanierProvider = ({ children }) => {
     );
 };
 
+
+
 export const PanierNbContext = createContext();
 export const PanierNbProvider = ({ children }) => {
     const [nombreProduits, setNombreProduits] = useState(0);
 
     return (
-        <PanierContext.Provider value={{ nombreProduits, setNombreProduits }}>
+        <PanierNbContext.Provider value={{ nombreProduits, setNombreProduits }}>
             {children}
-        </PanierContext.Provider>
+        </PanierNbContext.Provider>
     );
 };

@@ -8,14 +8,16 @@ import Slider from "react-slick";
 import data from "../Data/data.js"
 import { useContext } from 'react'
 import { PanierContext  } from './PanierContext.js'
+import { PanierNbContext } from './PanierContext.js'
 
 function Cards({ updateNumberOfProducts }) {
   const { panier,setPanier} = useContext(PanierContext);
-  const [nombreProduits, setNombreProduits] = useState(0);
+  const { nombreProduits, setNombreProduits} = useContext(PanierNbContext);
+ 
 
   const ajouterAuPanier = (nom, photo) => {
   const produitExistant = panier.find((item) => item.nom === nom);
-
+ 
   if (produitExistant) {
       const nouveauPanier = panier.map((item) =>
         item.nom === nom ? { ...item, nombreAjouts: item.nombreAjouts + 1 } : item
@@ -24,7 +26,7 @@ function Cards({ updateNumberOfProducts }) {
   } else {
       setPanier([...panier, { nom, photo, nombreAjouts: 1 }]);
       setNombreProduits(nombreProduits + 1);
-      updateNumberOfProducts(nombreProduits + 1); // Mettre à jour le nombre de produits dans le Menu
+      updateNumberOfProducts(nombreProduits + 1); // Mettre a jour le nombre de produits dans le Menu
     }
   };
 
@@ -55,7 +57,7 @@ function Cards({ updateNumberOfProducts }) {
         {/* </Slider> */}
       </div>
       {/* Affichage des éléments ajoutés au panier */}
-      <div className="panier">
+ {/*     <div className="panier">
         <h2>Produits ajoutés au panier :</h2>
         <ul>
           {panier.map((item, index) => (
@@ -67,6 +69,8 @@ function Cards({ updateNumberOfProducts }) {
           ))}
         </ul>
       </div>
+
+        */}      
     </div>
   );
 }

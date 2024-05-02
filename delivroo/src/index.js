@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {PanierProvider} from './Composent/PanierContext.js'
+import {PanierNbProvider} from './Composent/PanierContext.js'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
   <React.StrictMode>
     <PanierProvider>
+    <PanierNbProvider>
     <App />
+    </PanierNbProvider>
     </PanierProvider>
   </React.StrictMode>
 );

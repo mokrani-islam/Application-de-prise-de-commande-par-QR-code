@@ -29,10 +29,14 @@
    
   }
 
-  .contentPanier{
- 
+  .contentPanier {
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
+    justify-content: space-between; /* Pour espacer les éléments sur l'axe principal */
+}
 
-  }
+/* Ajouter une marge entre les éléments enfants */
+.contentPanier > * {
+    margin-right: 10px; /* Ajustez la valeur selon votre préférence */
+}

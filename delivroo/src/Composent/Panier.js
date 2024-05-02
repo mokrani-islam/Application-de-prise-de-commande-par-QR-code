@@ -4,10 +4,13 @@ import data from "../Data/data.js"
 import Pizza from "../assets/Pizza.png"
 import { useContext } from 'react'
 import { PanierContext  } from './PanierContext.js'
+import { PanierNbContext  } from './PanierContext.js'
+import { sendCartData } from '../Services/apiService';
 
 function Panier() {
    
     const { panier, setPanier } = useContext(PanierContext);
+    const { nombreProduits, setNombreProduits} = useContext(PanierNbContext);
 
     const rajouterProduit = (nomProduit) => {
         const nouveauPanier = [...panier];
@@ -36,12 +39,23 @@ function Panier() {
             }
 
             setPanier(nouveauPanier);
+            setNombreProduits(nouveauPanier.length);
         }
     };
 
+    const envoyerPanierAuBackend = async () => {
+      try {
+          await sendCartData(panier); 
+          alert('Votre panier a ete envoye avec succes !'); 
+      } catch (error) {
+          console.error('Erreur lors de lenvoi du panier:', error);
+          alert('Une erreur sest produite lors de lenvoi du panier. Veuillez reessayer plus tard.'); 
+      }
+  };
+
   return(
     <>
-    <Menu />
+    <Menu nombreProduits={nombreProduits} />
     <div className='PanierParagraph' style={{textAlign:"center"} }>Votre panier de commande</div>
     <div className='Panier'>
      {panier.map((element, index) => (

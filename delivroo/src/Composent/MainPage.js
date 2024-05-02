@@ -4,12 +4,10 @@ import Cards from  './Cards.js'
 import Menu from  './Menu.js'
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
-
-
+import { PanierNbContext  } from './PanierContext.js'
+import { useContext } from 'react'
 export default function MainPage() {
-const [nombreProduits, setNombreProduits] = useState(0); // État pour le nombre de produits
-
-// Fonction pour mettre à jour le nombre de produits
+const { nombreProduits, setNombreProduits} = useContext(PanierNbContext); 
 const updateNumberOfProducts = (newValue) => {
 setNombreProduits(newValue);
 
