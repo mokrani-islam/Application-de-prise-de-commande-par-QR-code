@@ -40,3 +40,9 @@
 .contentPanier > * {
     margin-right: 10px; /* Ajustez la valeur selon votre préférence */
 }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Vous pouvez ajuster la hauteur selon vos besoins */
+}

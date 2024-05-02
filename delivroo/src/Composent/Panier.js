@@ -6,12 +6,16 @@ import { useContext } from 'react'
 import { PanierContext  } from './PanierContext.js'
 import { PanierNbContext  } from './PanierContext.js'
 import { sendCartData } from '../Services/apiService';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import { useState } from 'react'
+import {useNavigate} from 'react-router-dom';
 
 function Panier() {
-   
+  const navigate = useNavigate();
     const { panier, setPanier } = useContext(PanierContext);
     const { nombreProduits, setNombreProduits} = useContext(PanierNbContext);
-
+    const [inputValue, setInputValue] = useState('')
     const rajouterProduit = (nomProduit) => {
         const nouveauPanier = [...panier];
         const indexProduit = nouveauPanier.findIndex(element => element.nom === nomProduit);
@@ -42,7 +46,7 @@ function Panier() {
             setNombreProduits(nouveauPanier.length);
         }
     };
-
+    
     const envoyerPanierAuBackend = async () => {
       try {
           await sendCartData(panier); 
@@ -52,36 +56,72 @@ function Panier() {
           alert('Une erreur sest produite lors de lenvoi du panier. Veuillez reessayer plus tard.'); 
       }
   };
+   
+  const showSwal = () => {
+    withReactContent(Swal).fire({
+      
+       icon: "success",
+       title: "Commande Validé",
+       showConfirmButton: false,
+       timer: 1200
+      }).then(() => {
+        // Réinitialiser le panier et le nombre de produits
+        setPanier([]);
+        setNombreProduits(0);
+        // Rediriger vers l'accueil
+        navigate("/");
+      });
+    };
+    
+    return(
+      <>
 
-  return(
-    <>
-    <Menu nombreProduits={nombreProduits} />
-    <div className='PanierParagraph' style={{textAlign:"center"} }>Votre panier de commande</div>
-    <div className='Panier'>
-     {panier.map((element, index) => (
-            <div key={index} className="customPanier">
-              
-              <div className="headerPanier">
-              <p className="titlePanier">{element.nom}</p>
-                <img src={Pizza} alt="" className="pizzaPanier" />
-              </div>
-              <div className="contentPanier">
-                
-                <p style={{color:'green'}}>{element.nombreAjouts}</p>
-                <p style={{color:'red'}}>1</p>
-                <button className="custom-button" onClick={() => rajouterProduit(element.nom)}>Ajouter</button>
-                <button className="custom-button" onClick={() => diminuerProduit(element.nom)}>Supprimer</button>
-              </div> 
-            </div>
-          ))}
+{panier.length === 0 ? (
+         <>
+        <Menu nombreProduits={nombreProduits} />
+        <div className='PanierParagraph' style={{textAlign:"center"} }>Votre panier de commandes</div>
+        <p style={{textAlign:"center"} }> Vous n'avez pas encore pris commande</p>
+        </>
+      ) : (
+        <>
+        <Menu nombreProduits={nombreProduits} />
+        
+        <div className='Panier'>
+         {panier.map((element, index) => (
+                <div key={index} className="customPanier">
                   
+                  <div className="headerPanier">
+                  <p className="titlePanier">{element.nom}</p>
+                    <img src={Pizza} alt="" className="pizzaPanier" />
+                  </div>
+                  <div className="contentPanier">
+                    
+                    <p style={{color:'green'}}>{element.nombreAjouts}</p>
+                    <p style={{color:'red'}}>1</p>
+                    <button className="custom-button" onClick={() => rajouterProduit(element.nom)}>Ajouter</button>
+                    <button className="custom-button" onClick={() => diminuerProduit(element.nom)}>Supprimer</button>
+                  </div> 
+                </div>
+              ))}
+                       <div class="center">
+                       <button onClick={showSwal} style ={{textAlign:"center"}}>Valider</button>
+                       </div>   
+                       
+                      
+        </div>
+        </>
+      )}
+      
+  
+      
+  
+      </>
+      
+      
+    );
 
-    </div>
 
-    </>
-    
-    
-  );
+
 }
 
 export default Panier;
