@@ -9,6 +9,8 @@ import data from "../Data/data.js"
 import { useContext } from 'react'
 import { PanierContext  } from './PanierContext.js'
 import { PanierNbContext } from './PanierContext.js'
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Cards({ updateNumberOfProducts }) {
   const { panier,setPanier} = useContext(PanierContext);
@@ -50,12 +52,13 @@ function Cards({ updateNumberOfProducts }) {
               <div className="content">
                 <p className="title">{d.name}</p>
                 <p>{d.review}</p>
-                <button className="custom-button" onClick={() => ajouterAuPanier(d.name, {Pizza})}>Ajouter</button>
+                <Button variant="primary" onClick={() => ajouterAuPanier(d.name, {Pizza})}>Ajouter</Button>
+               {/* <button className="custom-button" onClick={() => ajouterAuPanier(d.name, {Pizza})}>Ajouter</button>*/}
               </div> 
             </div>
           ))}
         {/* </Slider> */}
-      </div>
+      </div>.6.
       {/* Affichage des éléments ajoutés au panier */}
  {/*     <div className="panier">
         <h2>Produits ajoutés au panier :</h2>

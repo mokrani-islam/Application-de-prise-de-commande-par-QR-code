@@ -1,8 +1,10 @@
 .Container {
+    margin-top: 10%;
     display: flex;
     justify-content: space-between;
     padding: 10px;
    border-bottom: 2px solid black;
+   
   }
   
   .logoPizza {

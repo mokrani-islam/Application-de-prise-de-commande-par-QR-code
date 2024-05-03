@@ -10,6 +10,8 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Panier() {
   const navigate = useNavigate();
@@ -79,14 +81,14 @@ function Panier() {
 {panier.length === 0 ? (
          <>
         <Menu nombreProduits={nombreProduits} />
-        <div className='PanierParagraph' style={{textAlign:"center"} }>Votre panier de commandes</div>
+        <div className='PanierParagraph' style={{textAlign:"center" ,marginTop: "10%"} }>Votre panier de commandes est vide</div>
         <p style={{textAlign:"center"} }> Vous n'avez pas encore pris commande</p>
         </>
       ) : (
         <>
         <Menu nombreProduits={nombreProduits} />
-        
-        <div className='Panier'>
+        <div className='PanierParagraph' style={{textAlign:"center" ,marginTop: "10%"} }>Votre panier de commandes</div>
+        <div className='Panier'  >
          {panier.map((element, index) => (
                 <div key={index} className="customPanier">
                   
@@ -98,13 +100,16 @@ function Panier() {
                     
                     <p style={{color:'green'}}>{element.nombreAjouts}</p>
                     <p style={{color:'red'}}>1</p>
-                    <button className="custom-button" onClick={() => rajouterProduit(element.nom)}>Ajouter</button>
-                    <button className="custom-button" onClick={() => diminuerProduit(element.nom)}>Supprimer</button>
+                    <Button  variant="primary" size="lg" active onClick={() => rajouterProduit(element.nom)}>Ajouter</Button>
+                    <Button  variant="danger" size="lg" active  onClick={() => diminuerProduit(element.nom)}>Diminuer</Button>
+                  {/*  <button className="custom-button" onClick={() => rajouterProduit(element.nom)}>Ajouter</button>*/}
+                  {/*  <button className="custom-button" onClick={() => diminuerProduit(element.nom)}>Supprimer</button>*/}
                   </div> 
                 </div>
               ))}
                        <div class="center">
-                       <button onClick={showSwal} style ={{textAlign:"center"}}>Valider</button>
+                       <Button  variant="success"  style ={{textAlign:"center"}} onClick={showSwal}>Valider</Button>
+                      {/*  <button onClick={showSwal} style ={{textAlign:"center"}}>Valider</button>*/}
                        </div>   
                        
                       

@@ -1,5 +1,9 @@
 import Pizza from "../assets/Pizza.png"
 import "../Styles/Dishes.css"
+import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function Dishes() {
     return (
       <div className="Container">
@@ -11,9 +15,14 @@ function Dishes() {
       </p>
 
       <div className="container">
-      <button className="bouton">Prendre commande</button>
+      <Button as="a" variant="primary">
+      Prendre commande
+  </Button>
+  <Button as="a" variant="primary">
+  Plus d'information
+  </Button>
+     
       
-      <button className="bouton">Plus d'information</button>
       </div>
       
       

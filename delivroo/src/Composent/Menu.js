@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Menu.css"
-import Logo from "../assets/Logo.jpg";
+import Logo from "../assets/pizza-pizza.svg";
 
 function Menu({ nombreProduits }) {
     const panierData = { momo:'1'};
@@ -15,7 +15,7 @@ function Menu({ nombreProduits }) {
             <div className="texte">
                 {/*<h1 >Menu du Restaurant</h1>*/}
                 <Link to={{ pathname: "/panier", state: { panierData } }}> {/* Redirige vers le composant associé à l'URL /panier */}
-                    <i className="fa-solid fa-cart-plus" style={{ color: "red", paddingRight: "10px", fontSize: "25px" }}>{nombreProduits}</i>
+                    <i className="fa-solid fa-cart-plus" style={{ color: "#C9322D", paddingRight: "10px", fontSize: "25px" }}>{nombreProduits}</i>
                 </Link>
             </div>
         </div>
